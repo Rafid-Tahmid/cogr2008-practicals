@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+*.class
+.venv/
+week01/workspace/
+week03/workspace/
+week04/unit_test.txt
+week07/prac07.pids
+week08/results/
+report_blocks.json
