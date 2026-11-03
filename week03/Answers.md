@@ -40,4 +40,3 @@ The actual exercise history is preserved in `week03/git-exercise.bundle`, includ
 git clone week03/git-exercise.bundle /tmp/cogr-git-review
 git -C /tmp/cogr-git-review log --graph --oneline --all
 ```
-

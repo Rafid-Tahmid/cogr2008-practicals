@@ -1,6 +1,6 @@
 # COGR 2008 practical exercises
 
-Practical code, worked answers, and execution records for the supplied modules: 1–5 and 7–9. Module 6 was not supplied.
+Practical code, worked answers, and execution records for modules 1–5 and 7–9. Module 6 has no practical.
 
 The source handouts remain in the parent directory. Completed files are kept here so the supplied examples remain available for comparison.
 
@@ -8,12 +8,12 @@ The source handouts remain in the parent directory. Completed files are kept her
 
 - [Practical_Answers.pdf](Practical_Answers.pdf) is the formatted report; [Practical_Answers.md](Practical_Answers.md) is its editable source.
 - Each `weekNN` directory contains its code, notes, and relevant evidence.
-- [STATUS.md](STATUS.md) distinguishes completed local exercises from device tasks awaiting a Jetson Nano or course assets.
+- [STATUS.md](STATUS.md) distinguishes completed local exercises from activities requiring course assets, unrestricted process tools, or Jetson-specific observations.
 - `evidence/` contains records of actual executions. These are local catch-up runs, dated when performed.
 
 ## Running the code
 
-Python dependencies: `python3 -m pip install -r requirements.txt`. A JDK and `make` are needed for Week 2. `tmux` is needed for its session exercise. Jetson tasks require the course's Linux device, YOLOX installation, checkpoint, and input images.
+Python dependencies: `python3 -m pip install -r requirements.txt`. A JDK and `make` are needed for Week 2. `tmux` is needed for its session exercise. Many Unix exercises can run on macOS; Jetson-specific observations and the supplied GPU inference setup require the course device, YOLOX installation, checkpoint, and input images.
 
 ```sh
 make verify
