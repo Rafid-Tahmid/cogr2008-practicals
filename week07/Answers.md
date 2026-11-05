@@ -8,13 +8,13 @@
 
 A larger nice value generally gives a normal Linux process a lower scheduling weight. Under CPU contention it normally receives a smaller share than an otherwise comparable process with a lower nice value. Nice values are relative scheduling preferences, not fixed CPU percentages. A lower-priority process can still use an idle CPU fully; multiple cores and waiting for child processes can also affect the observation. Increasing a process's priority usually needs additional permission.
 
-`nice -n 10 command` starts at an adjusted nice level. On Linux, `renice -n 10 -p PID` requests a nice value of 10; exact `renice` option semantics should be checked on other Unix platforms. The Mac workspace blocked priority changes and `ps`, as recorded in `evidence/week07_processes.txt`. A later Raspberry Pi Linux run succeeded: five ordinary workers started at nice 0, a sixth at nice 10, and two workers were changed to nice 10 and 15. The `ps` snapshots in `evidence/pi_runs/processes.txt` show lower measured CPU percentages for the adjusted workers during that short run; the exact percentages depend on contention and sampling.
+`nice -n 10 command` starts at an adjusted nice level. On Linux, `renice -n 10 -p PID` requests a nice value of 10; exact `renice` option semantics should be checked on other Unix platforms. The Raspberry Pi Linux run succeeded: five ordinary workers started at nice 0, a sixth at nice 10, and two workers were changed to nice 10 and 15. The `ps` snapshots in `week07/processes.txt` show lower measured CPU percentages for the adjusted workers during that short run; the exact percentages depend on contention and sampling.
 
 ### Practical Q3. Kill all the practical's workers
 
 `week07/kill_workers.sh` uses `pgrep` restricted to the current user, then checks each matched process's command line against the absolute path to this practical's `prac07.sh`. It sends `SIGTERM` only to matching workers. Checking the path avoids killing unrelated programs whose names happen to contain the same text. The bracketed pattern `[p]rac07[.]sh` prevents matching the literal search pattern itself. `SIGKILL` is suitable for the handout's forced-termination demonstration but should not replace graceful termination when cleanup matters.
 
-`week07/run_process_demo.sh` starts five normal workers and one nice-adjusted worker, records process data, renices two workers, forcibly ends one, and terminates the others. It cleans up its own children even if a step fails. The Raspberry Pi run completed with all six workers exited; its transcript is `evidence/pi_runs/processes.txt`. `tegrastats` remains Jetson-specific.
+`week07/run_process_demo.sh` starts five normal workers and one nice-adjusted worker, records process data, renices two workers, forcibly ends one, and terminates the others. It cleans up its own children even if a step fails. The Raspberry Pi run completed with all six workers exited; its transcript is `week07/processes.txt`. `tegrastats` remains Jetson-specific.
 
 ### In-class Q1. Round robin with a 500 ms quantum
 
@@ -66,11 +66,11 @@ The parenthesized letter identifies the process that ran during that row, corres
 | 9 | 19–20 | (C) | — | — | B:14 | C:6 until 21 |
 | 10 | 20–28 | (B) | C:6 | — | B:6 | — |
 
-A has completed by iteration 8. C still needs six CPU bursts and six I/O units after iteration 10. `week07/scheduling.py` generates the timeline and queue snapshots saved in `evidence/week07_scheduling.json`.
+A has completed by iteration 8. C still needs six CPU bursts and six I/O units after iteration 10. `week07/scheduling.py` reproduces the timeline and queue snapshots.
 
 ### In-class Q4. Semaphore outcomes
 
-Treat each displayed instruction as atomic. `down(s)` blocks when the semaphore is zero; `up(s)` increments it and permits a waiting operation to proceed. Initial state: x=0, y=23, z=0, m=1, ml=0, mx=1. The complete instructions, including semaphore operations, are enumerated by `week07/semaphore_outcomes.py`; results and example traces are in `evidence/week07_semaphores.json`.
+Treat each displayed instruction as atomic. `down(s)` blocks when the semaphore is zero; `up(s)` increments it and permits a waiting operation to proceed. Initial state: x=0, y=23, z=0, m=1, ml=0, mx=1. `week07/semaphore_outcomes.py` enumerates the complete instructions, including semaphore operations.
 
 **(a) Final x is 24 or 25.** Both processes use `m` around their updates, so the two critical sections cannot overlap. P1 then P2 gives `z=x; z++; x=z` followed by `y++; x=y`, ending at 24. P2 then P1 first sets x=24, then increments it to 25. Both completed orders release `m` and neither deadlocks.
 

@@ -1,0 +1,52 @@
+Counter while another window is selected:
+1
+2
+3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Counter two seconds later, with no attached client:
+1
+2
+3
+4
+5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1: counter- (1 panes) [80x24] [layout b25d,80x24,0,0,0] @0
+2: other* (1 panes) [80x24] [layout b25e,80x24,0,0,1] @1 (active)

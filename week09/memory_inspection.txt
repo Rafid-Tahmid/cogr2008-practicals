@@ -1,0 +1,50 @@
+2026-11-05T07:33:27Z
+MemTotal:        8007396 kB
+MemFree:         5563896 kB
+MemAvailable:    7423788 kB
+Buffers:          151368 kB
+Cached:          1729812 kB
+SwapCached:            0 kB
+Active:          1137740 kB
+Inactive:        1083188 kB
+Active(anon):     346280 kB
+Inactive(anon):        0 kB
+Active(file):     791460 kB
+Inactive(file):  1083188 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       2097148 kB
+SwapFree:        2097148 kB
+Zswap:                 0 kB
+Zswapped:              0 kB
+Dirty:              1016 kB
+Writeback:             0 kB
+AnonPages:        339908 kB
+Mapped:           432832 kB
+Shmem:              6688 kB
+KReclaimable:      87376 kB
+Slab:             129816 kB
+SReclaimable:      87376 kB
+SUnreclaim:        42440 kB
+KernelStack:        4736 kB
+PageTables:        10044 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     6100844 kB
+Committed_AS:    1635392 kB
+VmallocTotal:   261087232 kB
+VmallocUsed:       45460 kB
+VmallocChunk:          0 kB
+Percpu:              912 kB
+CmaTotal:         524288 kB
+CmaFree:          513116 kB
+Balloon:               0 kB
+               total        used        free      shared  buff/cache   available
+Mem:           7.6Gi       570Mi       5.3Gi       6.5Mi       1.9Gi       7.1Gi
+Swap:          2.0Gi          0B       2.0Gi
+Filename				Type		Size		Used		Priority
+/dev/zram0                              partition	2097148		0		100
+NAME       TYPE      SIZE USED PRIO
+/dev/zram0 partition   2G   0B  100

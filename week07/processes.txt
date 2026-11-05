@@ -1,0 +1,24 @@
+2026-11-05T07:33:21Z
+Linux 6.18.50+rpt-rpi-v8 aarch64
+    PID    PPID  NI %CPU COMMAND
+1016928 1016922   0 14.7 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016929 1016922   0 13.7 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016930 1016922   0 15.6 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016931 1016922   0 12.7 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016932 1016922   0 11.7 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016933 1016922  10  8.8 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016928 (process ID) old priority 0, new priority 10
+1016929 (process ID) old priority 0, new priority 15
+    PID    PPID  NI %CPU COMMAND
+1016928 1016922  10 12.9 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016929 1016922  15 11.4 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016930 1016922   0 15.7 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016931 1016922   0 14.8 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016932 1016922   0 14.3 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+1016933 1016922  10  7.6 bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+Terminating PID 1016928: bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+Terminating PID 1016929: bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+Terminating PID 1016931: bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+Terminating PID 1016932: bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+Terminating PID 1016933: bash /home/rafid/cogr2008-practicals/week07/prac07.sh 10000
+All six workers have exited.

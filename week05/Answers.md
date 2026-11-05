@@ -12,7 +12,7 @@ The Variables panel shows the values in the selected stack frame, including `n` 
 
 The recursive algorithm moves the top `n-1` disks aside, moves the largest remaining disk to the destination, and moves the `n-1` disks onto it. Its recurrence is T(n) = 2T(n-1) + 1, giving 2^n - 1 moves, so three disks require seven moves.
 
-`week05/Hanoi.ipynb` contains the three executable practical cells with saved outputs. `week05/create_notebook.py` executed those cells in a fresh Python namespace and captured actual stack frames using Python tracing. That record is `evidence/week05_actual_stack.json`; it is not a Jupyter GUI screenshot. The additional `hanoi.py` implementation validates every move and the final peg state. The run ended with A and B empty and C equal to `[3, 2, 1]`.
+`week05/Hanoi.ipynb` contains the three executable practical cells with saved outputs. The completed run ended with A and B empty and C equal to `[3, 2, 1]`. The notebook contains the recursive function and its seven moves.
 
 To perform the interactive part, open the notebook in JupyterLab, enable the debugger, place a breakpoint at `target.append(source.pop())` in the function cell, and run the cells in order. Defining the function does not execute its body, so the breakpoint is reached only when the third cell calls it.
 

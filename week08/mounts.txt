@@ -1,0 +1,22 @@
+2026-11-05T07:33:23Z
+Linux pi 6.18.50+rpt-rpi-v8 #1 SMP PREEMPT Debian 1:6.18.50-1+rpt1 (2026-09-11) aarch64 GNU/Linux
+/dev/mmcblk0p2 ext4
+/dev/mmcblk0p2 on / type ext4 (rw,noatime)
+/dev/mmcblk0p1 on /boot/firmware type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,errors=remount-ro)
+proc            /proc           proc    defaults          0       0
+PARTUUID=a4ac266a-01  /boot/firmware  vfat    defaults          0       2
+PARTUUID=a4ac266a-02  /               ext4    defaults,noatime  0       1
+
+# External USB drives - nofail so boot continues if unplugged
+# d64: 64G ext4, local storage for projects/downloads (stays with the Pi)
+UUID=4b89f055-b552-4407-b05a-7ce1d634a174  /mnt/d64  ext4   defaults,noatime,nofail,x-systemd.device-timeout=5  0  2
+# d32: 32G exFAT course library, mounted read-only and shared over Tailscale
+/dev/disk/by-id/usb-SanDisk_Cruzer_Blade_04018619120123043938-0:0-part1  /mnt/d32  exfat  ro,nofail,nosuid,nodev,noexec,x-systemd.automount,x-systemd.device-timeout=10s,uid=65534,gid=65534,fmask=0133,dmask=0022  0  0
+NAME        FSTYPE FSVER LABEL           UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+loop0       swap   1     origin:rpi-swap
+sda
+└─sda1      ext4   1.0   d64             4b89f055-b552-4407-b05a-7ce1d634a174   56.3G     0% /mnt/d64
+mmcblk0
+├─mmcblk0p1 vfat   FAT32 bootfs          BFD4-9C30                             424.5M    16% /boot/firmware
+└─mmcblk0p2 ext4   1.0   rootfs          8abab6b9-ef90-4fee-ae3d-91079bfae7c1   36.6G    31% /
+zram0       swap   1     zram0           2cd48269-0352-4324-9ddb-dd863d0edc02                [SWAP]

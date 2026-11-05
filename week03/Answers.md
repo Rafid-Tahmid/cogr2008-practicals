@@ -10,7 +10,7 @@ git log --format='%an' | grep -x 'Paul Smith' | wc -l
 
 The available full-history local clone produces **1,208** matching commits reachable from its current `HEAD`, at revision `c63a5bc6a2881d515bb3020ed477fcba08fb2f3d`. That revision's author date is `2024-08-04T23:48:51-04:00`. It is an existing snapshot, not a claim about today's upstream total; network access prevented fetching updates. `git rev-parse --is-shallow-repository` returned `false`. The pipeline emits one author name per commit, matches the complete name, and counts those lines. This counts commits, including matching merge commits, rather than changed files or lines.
 
-Reproduce the recorded count with `bash week03/count_commits.sh /path/to/make`. The revision and count are saved in `evidence/week03_gnu_make_count.txt`.
+Reproduce the count with `bash week03/count_commits.sh /path/to/make`.
 
 ### Q2. What does `git commit -a` replace?
 
@@ -30,7 +30,7 @@ In a linear history the middle command shows the latest four commits. In a merge
 
 ### Completed Git exercises
 
-`week03/git_workflow.py` executed initialization, staging, committing, cached diffs, an experimental branch, divergent edits, a real merge conflict and its resolution, a tag, history queries, a local clone, and a subsequent pull. It then created a local bare repository, pushed `main`, created and pushed `new-branch`, merged it back, and pushed the merge. The full transcript is `evidence/week03_git.txt`.
+The Git exercise covered initialization, staging, committing, cached diffs, an experimental branch, divergent edits, a merge conflict and its resolution, a tag, a local clone, and a pull. It also used a local bare repository to practice pushes and merges.
 
 The remote in that transcript is explicitly a **local bare repository**, not a hosted GitLab or GitHub account. GitLab merge requests and the Web IDE were not exercised. No remote GitHub push was performed.
 

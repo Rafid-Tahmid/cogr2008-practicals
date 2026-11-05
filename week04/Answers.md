@@ -14,7 +14,7 @@ Replace the upper-bound assertion with:
 assert 0 <= int(response.data) <= n_max
 ```
 
-This also rejects negative totals. The application's current data is hard-coded at 120, so this verifies the allowed lower bound without pretending to exercise a separate configurable zero-enrolment state. Checking each class independently would require the app to expose its individual counts. Both current tests passed locally; see `evidence/week04_tests.txt`.
+This also rejects negative totals. The application's current data is hard-coded at 120, so this verifies the allowed lower bound without pretending to exercise a separate configurable zero-enrolment state. Checking each class independently would require the app to expose its individual counts. Both current tests passed locally.
 
 ### Q3. Makefile implementation
 
@@ -46,7 +46,3 @@ The application was checked using Flask's test client. `deploy` is a local devel
 **GIMP:** [GNOME/gimp on GitHub](https://github.com/GNOME/gimp) is a read-only mirror. The branch listing showed `master`, `gimp-3-2`, and topic branches such as `bruno/mac-win-accent`. Their names suggest main development, release maintenance, and focused changes respectively; these purposes are an inference from names rather than verified policies. The repository exposes an Insights tab, but its activity page was rate-limited, so no activity total or graph is claimed. GIMP's [official bug page](https://www.gimp.org/bugs/) directs bug reports to GNOME GitLab and distinguishes open issues, closed issues, platform filters, and feature proposals.
 
 **Blender:** the handout's workflow links development, source contributions, and issue tracking through Blender's developer site. All attempted official Blender pages returned access errors, so its current tracker interface and particular reports could not be inspected. A tracker integrated with code review can connect a report to its fix and review discussion; a separate platform adds another account and workflow to learn. These are general comparison points, not observations of an accessible Blender page.
-
-### Optional CI/CD
-
-`week04/.gitlab-ci.yml` contains a minimal test-stage example using Python 3.12, Flask, and pytest. Copy it and the Week 4 files to a dedicated GitLab repository root to use it. It was not submitted to a runner. Docker image publishing and DigitalOcean deployment were not performed; they require external services, account access, and deployment configuration.

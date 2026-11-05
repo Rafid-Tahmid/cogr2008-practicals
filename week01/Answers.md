@@ -2,7 +2,7 @@
 
 ### Environment and execution
 
-The local exercises ran on macOS/Darwin arm64, using its native Unix shell and utilities. The handout permits a native Mac environment for the Unix tutorial. VirtualBox and a connected Jetson were not available. The course's `M01 prac unixtut` archive and its `science.txt` were not supplied, so `week01/unix_exercises.sh` was verified with the explicitly labelled `practice_sample.txt`. Its output is in `evidence/week01_unix.txt`. Results that depend on the original article, including its word counts, require that article.
+The local exercises ran on macOS/Darwin arm64, using its native Unix shell and utilities. The handout permits a native Mac environment for the Unix tutorial. VirtualBox and a connected Jetson were not available. The course's `M01 prac unixtut` archive and its `science.txt` were not supplied, so `week01/unix_exercises.sh` was verified with the explicitly labelled `practice_sample.txt`. Results that depend on the original article, including its word counts, require that article.
 
 Run against the course file once available:
 

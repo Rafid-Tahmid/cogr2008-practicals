@@ -1,0 +1,70 @@
+{
+  "platform": "Linux-6.18.50+rpt-rpi-v8-aarch64-with-glibc2.41",
+  "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "numpy": "2.2.4",
+  "records": [
+    {
+      "command": "import numpy as np",
+      "elements": 123456789,
+      "live_array_bytes": 0,
+      "process_rss_bytes": 25960448,
+      "system_available_bytes": 7548518400,
+      "system_swap_used_bytes": 0,
+      "swap_measurement_error": null
+    },
+    {
+      "command": "my_array = np.zeros(elements)",
+      "elements": 123456789,
+      "live_array_bytes": 987654312,
+      "process_rss_bytes": 25964544,
+      "system_available_bytes": 7548518400,
+      "system_swap_used_bytes": 0,
+      "swap_measurement_error": null
+    },
+    {
+      "command": "my_array1 = my_array + 1",
+      "elements": 123456789,
+      "live_array_bytes": 1975308624,
+      "process_rss_bytes": 1013620736,
+      "system_available_bytes": 6548664320,
+      "system_swap_used_bytes": 0,
+      "swap_measurement_error": null
+    },
+    {
+      "command": "my_array2 = my_array + 2",
+      "elements": 123456789,
+      "live_array_bytes": 2962962936,
+      "process_rss_bytes": 2001276928,
+      "system_available_bytes": 5560471552,
+      "system_swap_used_bytes": 0,
+      "swap_measurement_error": null
+    },
+    {
+      "command": "my_array3 = my_array + 3",
+      "elements": 123456789,
+      "live_array_bytes": 3950617248,
+      "process_rss_bytes": 2988933120,
+      "system_available_bytes": 4573646848,
+      "system_swap_used_bytes": 0,
+      "swap_measurement_error": null
+    },
+    {
+      "command": "del my_array3",
+      "elements": 123456789,
+      "live_array_bytes": 2962962936,
+      "process_rss_bytes": 2001276928,
+      "system_available_bytes": 5365960704,
+      "system_swap_used_bytes": 0,
+      "swap_measurement_error": null
+    },
+    {
+      "command": "del my_array1",
+      "elements": 123456789,
+      "live_array_bytes": 1975308624,
+      "process_rss_bytes": 1013620736,
+      "system_available_bytes": 6351200256,
+      "system_swap_used_bytes": 0,
+      "swap_measurement_error": null
+    }
+  ]
+}
