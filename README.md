@@ -7,8 +7,8 @@ The source handouts remain in the parent directory. Completed files are kept her
 ## Reading the results
 
 - [Practical_Answers.pdf](Practical_Answers.pdf) is the formatted report; [Practical_Answers.md](Practical_Answers.md) is its editable source.
-- Each `weekNN` directory contains its code, notes, and relevant evidence.
-- [STATUS.md](STATUS.md) distinguishes completed local exercises from activities requiring course assets, unrestricted process tools, or Jetson-specific observations.
+- Each `weekNN` directory contains its code, notes, and relevant evidence. Raspberry Pi Linux measurements are in `evidence/pi_runs/`.
+- [STATUS.md](STATUS.md) distinguishes completed work from unperformed activities. Jetson-specific hardware steps are left out as requested.
 - `evidence/` contains records of actual executions. These are local catch-up runs, dated when performed.
 
 ## Running the code

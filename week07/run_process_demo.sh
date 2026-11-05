@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 script_dir=$(cd "$(dirname "$0")" && pwd)
+iterations=${PRACTICAL_ITERATIONS:-100000}
 pids=()
 cleanup() {
     for pid in "${pids[@]}"; do kill -TERM "$pid" 2>/dev/null || true; done
@@ -10,10 +11,10 @@ trap cleanup EXIT
 date -u '+%Y-%m-%dT%H:%M:%SZ'
 uname -srm
 for i in $(seq 1 5); do
-    bash "$script_dir/prac07.sh" &
+    bash "$script_dir/prac07.sh" "$iterations" &
     pids+=("$!")
 done
-nice -n 10 bash "$script_dir/prac07.sh" &
+nice -n 10 bash "$script_dir/prac07.sh" "$iterations" &
 pids+=("$!")
 sleep 1
 ps -p "$(IFS=,; echo "${pids[*]}")" -o pid,ppid,ni,%cpu,command

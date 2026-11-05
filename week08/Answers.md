@@ -4,7 +4,7 @@
 
 The practical uses `mount | grep mmcblk` to select SD-card partition mounts. In a line such as `/dev/mmcblk0p1 on / type ext4 (...)`, `/` is the mount point and `ext4` is the filesystem type. `sudo fdisk -l` lists partitions but does not itself establish their current mount points. `cat /etc/fstab` shows configured mounts, which should be compared with the live mount output.
 
-The course Jetson image is expected to use ext4 for its root filesystem, but no Jetson mount output was available to establish the actual device's type. Confirm with `findmnt -no SOURCE,FSTYPE /` on the device. `week08/inspect_device.sh` records these live values without modifying any partition.
+On the Raspberry Pi used for the follow-up run, `findmnt -no SOURCE,FSTYPE /` reported `/dev/mmcblk0p2 ext4`; `mount` independently showed that partition mounted at `/` as ext4. The boot partition `/dev/mmcblk0p1` was vfat. These are Pi observations in `evidence/pi_runs/mounts.txt`, not measurements of the course Jetson. The course Jetson image is expected to use ext4 for its root filesystem, but no Jetson mount output was available to verify its actual partition. `week08/inspect_device.sh` records live values without modifying partitions.
 
 ### Practical Q2. Explain the image-counting loop
 
@@ -16,13 +16,13 @@ The original `for i in $(find ...)` and unquoted `$i` break on directory names c
 
 An inner and outer session normally share the `Ctrl-b` prefix. The outer session intercepts it, making it less obvious which session receives commands; nested panes and status bars also become confusing. Use another window or pane in the existing session. If nesting is intentional, send a prefix through to the inner session or configure distinct prefixes. `tmux a || tmux` attaches to an existing session or creates one if attachment fails.
 
-`week08/tmux_demo.sh` uses a separate tmux socket to avoid touching personal sessions. It demonstrates a counter continuing while another window is selected and no client is attached. This workspace denied creating the socket, so the demonstration remains unverified; the error is in `evidence/week08_tmux.txt`.
+`week08/tmux_demo.sh` uses a separate tmux socket to avoid touching personal sessions. The Mac workspace denied creating the socket (`evidence/week08_tmux.txt`), but the Raspberry Pi run succeeded. Its counter advanced from 3 to 5 while another window was selected and no client was attached; the two captures and window list are in `evidence/pi_runs/tmux.txt`.
 
 ### Object detection exercise
 
 On the course Jetson, activate `~/YOLOX/venv36` and run `week08/run_detection.sh`. It processes every `.jpg` file using the supplied experiment, checkpoint, and GPU settings. Set `CONFIDENCE=0.5` to repeat at a higher confidence threshold. Raising the threshold filters out lower-confidence detections, generally reducing displayed boxes and potentially missing true objects; lowering it generally displays more boxes and risks more false positives. It does not retrain the model.
 
-The script retains `--nms 0.45`, `--tsize 640`, `--save_result`, and `--device gpu` from the handout. It handles filenames with spaces and fails clearly if the checkpoint or inputs are missing. These assets and the Jetson GPU were unavailable here, so no prediction images or detection counts are claimed.
+The script retains `--nms 0.45`, `--tsize 640`, `--save_result`, and `--device gpu` by default from the handout; `DETECTION_DEVICE=cpu` selects CPU inference on the Pi. It handles filenames with spaces and fails clearly if the checkpoint or inputs are missing. The handout assumes the YOLOX project, checkpoint, and images are already on the course Jetson. They were not found on the Pi, so no prediction images or detection counts are claimed (`evidence/pi_runs/asset_search.txt`). None of the three printed Week 8 questions asks for prediction results or those files.
 
 ### In-class Q1. Fairness and request ordering
 

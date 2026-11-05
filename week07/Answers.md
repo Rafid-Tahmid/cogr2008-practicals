@@ -8,13 +8,13 @@
 
 A larger nice value generally gives a normal Linux process a lower scheduling weight. Under CPU contention it normally receives a smaller share than an otherwise comparable process with a lower nice value. Nice values are relative scheduling preferences, not fixed CPU percentages. A lower-priority process can still use an idle CPU fully; multiple cores and waiting for child processes can also affect the observation. Increasing a process's priority usually needs additional permission.
 
-`nice -n 10 command` starts at an adjusted nice level. On Linux, `renice -n 10 -p PID` requests a nice value of 10; exact `renice` option semantics should be checked on other Unix platforms. The local Mac sandbox blocked priority changes and `ps`, so no measured utilization comparison is claimed. The failed attempt and error are preserved in `evidence/week07_processes.txt`.
+`nice -n 10 command` starts at an adjusted nice level. On Linux, `renice -n 10 -p PID` requests a nice value of 10; exact `renice` option semantics should be checked on other Unix platforms. The Mac workspace blocked priority changes and `ps`, as recorded in `evidence/week07_processes.txt`. A later Raspberry Pi Linux run succeeded: five ordinary workers started at nice 0, a sixth at nice 10, and two workers were changed to nice 10 and 15. The `ps` snapshots in `evidence/pi_runs/processes.txt` show lower measured CPU percentages for the adjusted workers during that short run; the exact percentages depend on contention and sampling.
 
 ### Practical Q3. Kill all the practical's workers
 
 `week07/kill_workers.sh` uses `pgrep` restricted to the current user, then checks each matched process's command line against the absolute path to this practical's `prac07.sh`. It sends `SIGTERM` only to matching workers. Checking the path avoids killing unrelated programs whose names happen to contain the same text. The bracketed pattern `[p]rac07[.]sh` prevents matching the literal search pattern itself. `SIGKILL` is suitable for the handout's forced-termination demonstration but should not replace graceful termination when cleanup matters.
 
-`week07/run_process_demo.sh` starts five normal workers and one nice-adjusted worker, records process data, renices two workers, forcibly ends one, and terminates the others. It cleans up its own children even if a step fails. Run it outside this restricted workspace or on the course device to collect the missing process evidence. `tegrastats` requires the Jetson environment.
+`week07/run_process_demo.sh` starts five normal workers and one nice-adjusted worker, records process data, renices two workers, forcibly ends one, and terminates the others. It cleans up its own children even if a step fails. The Raspberry Pi run completed with all six workers exited; its transcript is `evidence/pi_runs/processes.txt`. `tegrastats` remains Jetson-specific.
 
 ### In-class Q1. Round robin with a 500 ms quantum
 
