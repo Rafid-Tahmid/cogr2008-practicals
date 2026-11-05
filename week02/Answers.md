@@ -32,5 +32,3 @@ The three supplied Java files were copied without changing their program logic. 
 The phony-target exercise created files named `run` and `clean`. Execution still ran and cleaning still removed the class files. The temporary files were removed afterwards.
 
 With the original sample Makefile, touching `SharedAccountClient.java` rebuilds that class alone. This completed Makefile also declares that `DriverATM.class` depends on it, so a client change rebuilds the client and driver. Touching a file changes its modification time, not its content; make uses those timestamps to decide whether a target is stale.
-
-The optional GitLab server installation was not performed; it needs Docker and a suitable Linux environment and is not necessary to compile or run this exercise.

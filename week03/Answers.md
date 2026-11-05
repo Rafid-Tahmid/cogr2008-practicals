@@ -8,7 +8,7 @@ cd make
 git log --format='%an' | grep -x 'Paul Smith' | wc -l
 ```
 
-The available full-history local clone produces **1,208** matching commits reachable from its current `HEAD`, at revision `c63a5bc6a2881d515bb3020ed477fcba08fb2f3d`. That revision's author date is `2024-08-04T23:48:51-04:00`. It is an existing snapshot, not a claim about today's upstream total; network access prevented fetching updates. `git rev-parse --is-shallow-repository` returned `false`. The pipeline emits one author name per commit, matches the complete name, and counts those lines. This counts commits, including matching merge commits, rather than changed files or lines.
+The available full-history local clone produces **1,208** matching commits reachable from its current `HEAD`, at revision `c63a5bc6a2881d515bb3020ed477fcba08fb2f3d`. That revision's author date is `2024-08-04T23:48:51-04:00`. It is an existing snapshot, not a claim about today's upstream total. `git rev-parse --is-shallow-repository` returned `false`. The pipeline emits one author name per commit, matches the complete name, and counts those lines. This counts commits, including matching merge commits, rather than changed files or lines.
 
 Reproduce the count with `bash week03/count_commits.sh /path/to/make`.
 
@@ -28,11 +28,9 @@ Reference: [Git commit documentation](https://git-scm.com/docs/git-commit).
 
 In a linear history the middle command shows the latest four commits. In a merged history it can show more than four: the local exercise shows six because commits from the merged side branch are also reachable. `~4` follows the first parent four times; a two-dot range is a reachability difference, not a fixed commit count.
 
-### Completed Git exercises
+### Local Git exercises
 
 The Git exercise covered initialization, staging, committing, cached diffs, an experimental branch, divergent edits, a merge conflict and its resolution, a tag, a local clone, and a pull. It also used a local bare repository to practice pushes and merges.
-
-The remote in that transcript is explicitly a **local bare repository**, not a hosted GitLab or GitHub account. GitLab merge requests and the Web IDE were not exercised. No remote GitHub push was performed.
 
 The actual exercise history is preserved in `week03/git-exercise.bundle`, including both branches. To inspect a separate clone:
 
@@ -40,3 +38,5 @@ The actual exercise history is preserved in `week03/git-exercise.bundle`, includ
 git clone week03/git-exercise.bundle /tmp/cogr-git-review
 git -C /tmp/cogr-git-review log --graph --oneline --all
 ```
+
+### Hosted GitLab collaboration

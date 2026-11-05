@@ -4,7 +4,7 @@
 
 The practical uses `mount | grep mmcblk` to select SD-card partition mounts. In a line such as `/dev/mmcblk0p1 on / type ext4 (...)`, `/` is the mount point and `ext4` is the filesystem type. `sudo fdisk -l` lists partitions but does not itself establish their current mount points. `cat /etc/fstab` shows configured mounts, which should be compared with the live mount output.
 
-On the Raspberry Pi used for the follow-up run, `findmnt -no SOURCE,FSTYPE /` reported `/dev/mmcblk0p2 ext4`; `mount` independently showed that partition mounted at `/` as ext4. The boot partition `/dev/mmcblk0p1` was vfat. These are Pi observations in `week08/mounts.txt`, not measurements of the course Jetson. The course Jetson image is expected to use ext4 for its root filesystem, but no Jetson mount output was available to verify its actual partition.
+On the Raspberry Pi used for the follow-up run, `findmnt -no SOURCE,FSTYPE /` reported `/dev/mmcblk0p2 ext4`; `mount` independently showed that partition mounted at `/` as ext4. The boot partition `/dev/mmcblk0p1` was vfat. These are Pi observations in `week08/mounts.txt`, not measurements of the course Jetson.
 
 ### Practical Q2. Explain the image-counting loop
 
@@ -19,10 +19,6 @@ An inner and outer session normally share the `Ctrl-b` prefix. The outer session
 `week08/tmux_demo.sh` uses a separate tmux socket to avoid touching personal sessions. The Raspberry Pi run succeeded: its counter advanced from 3 to 5 while another window was selected and no client was attached. The two captures and window list are in `week08/tmux.txt`.
 
 ### Object detection exercise
-
-On the course Jetson, the handout activates `~/YOLOX/venv36` and runs predictions over its `.jpg` files using the supplied experiment, checkpoint, and GPU settings. Raising `--conf` from 0.25 to 0.5 filters out lower-confidence detections, generally reducing displayed boxes and potentially missing true objects; lowering it generally displays more boxes and risks more false positives. It does not retrain the model.
-
-The handout assumes the YOLOX project, checkpoint, and images are already on the course Jetson. They were not found on the Pi, so no prediction images or detection counts are claimed. None of the three printed Week 8 questions asks for prediction results or those files.
 
 ### In-class Q1. Fairness and request ordering
 

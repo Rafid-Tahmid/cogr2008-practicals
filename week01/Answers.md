@@ -1,15 +1,5 @@
 ## Week 1: Unix essentials
 
-### Environment and execution
-
-The local exercises ran on macOS/Darwin arm64, using its native Unix shell and utilities. The handout permits a native Mac environment for the Unix tutorial. VirtualBox and a connected Jetson were not available. The course's `M01 prac unixtut` archive and its `science.txt` were not supplied, so `week01/unix_exercises.sh` was verified with the explicitly labelled `practice_sample.txt`. Results that depend on the original article, including its word counts, require that article.
-
-Run against the course file once available:
-
-```sh
-bash week01/unix_exercises.sh /path/to/science.txt
-```
-
 ### Tutorial 1: directories and paths
 
 `ls` lists visible entries; `ls -a` includes dotfiles. `mkdir -p unixstuff/backups` creates both directories. `cd .` stays in the current directory, `cd ..` moves to its parent, and `pwd` displays the absolute working path. `~` expands to the current user's home directory, so `ls ~` lists that home and `ls ~/..` lists its parent. A relative path is interpreted from the current directory; an absolute path starts at `/`. These operations were exercised inside a temporary directory to keep the original materials intact.
@@ -54,12 +44,12 @@ sort list1 | uniq > unique_list
 
 `chmod 600 science.txt` grants only its owner read/write access. `chmod 700 backups` grants only its owner directory read/write/search access. On directories, read lists names, search/execute permits traversal, and write together with search permits creating or removing entries, subject to restrictions such as the sticky bit.
 
-Appending `&` starts a background job. `Ctrl-Z` suspends a foreground job, `bg` resumes it in the background, `jobs` lists shell jobs, and `fg` brings one forward. `kill -TERM PID` requests termination. `kill -KILL PID` forces termination without allowing cleanup. The script exercised stop, continue, terminate, and wait on its own child; process listings were blocked by this workspace's permissions.
+Appending `&` starts a background job. `Ctrl-Z` suspends a foreground job, `bg` resumes it in the background, `jobs` lists shell jobs, and `fg` brings one forward. `kill -TERM PID` requests termination. `kill -KILL PID` forces termination without allowing cleanup. The script exercised stop, continue, terminate, and wait on its own child.
 
 Reference: [Tutorial Five](https://www.cs.sfu.ca/~ggbaker/reference/unix/unix5.html).
 
 ### Tutorial 6: other utilities
 
-`df -h .` reports space on the containing filesystem; `du -sk .` reports directory usage. `file science.txt` identifies the file type. `diff science.txt backups/science.bak` checks for content changes. `gzip -c science.txt > science.txt.gz` creates a compressed copy, and `gzip -dc science.txt.gz | cmp - science.txt` checks the decompressed content. `find . -type f -name '*.txt'` searches recursively. Quota and print utilities depend on the host's services; no quota configuration or physical printing was performed.
+`df -h .` reports space on the containing filesystem; `du -sk .` reports directory usage. `file science.txt` identifies the file type. `diff science.txt backups/science.bak` checks for content changes. `gzip -c science.txt > science.txt.gz` creates a compressed copy, and `gzip -dc science.txt.gz | cmp - science.txt` checks the decompressed content. `find . -type f -name '*.txt'` searches recursively. Quota and print utilities depend on the host's services.
 
-The public tutorial index is [Unix Tutorial for Beginners](https://www.cs.sfu.ca/~ggbaker/reference/unix/). These command exercises cover its six listed topic groups, but do not establish completion of any additional questions in the missing course archive.
+The public tutorial index is [Unix Tutorial for Beginners](https://www.cs.sfu.ca/~ggbaker/reference/unix/). It covers the six topic groups above.

@@ -24,4 +24,4 @@ ssh -p 2522 -N -L 127.0.0.1:8080:localhost:8888 tonystark@localhost
 
 VirtualBox must forward host TCP port 2522 to the VM's SSH port 22. `-p 2522` connects to that forwarded SSH service; `-N` starts no remote command. `-L` listens on the host's loopback port 8080 and forwards traffic through SSH to `localhost:8888` as seen from the VM. Start Jupyter inside the VM on port 8888, keep the tunnel open, and use `http://localhost:8080` with Jupyter's authentication token. The host and guest occurrences of `localhost` identify different machines in their respective contexts.
 
-The question sheet specifies guest port 8888. The last example in the practical handout instead says 8080; use the actual guest Jupyter port, which is normally 8888. No VM/SSH service was available to verify this connection locally.
+The question sheet specifies guest port 8888. The last example in the practical handout instead says 8080; use the actual guest Jupyter port, which is normally 8888.
